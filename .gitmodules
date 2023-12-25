@@ -1,0 +1,3 @@
+[submodule "pyu8disas"]
+	path = pyu8disas
+	url = https://github.com/gamingwithevets/pyu8disas
