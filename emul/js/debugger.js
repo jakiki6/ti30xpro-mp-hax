@@ -38,6 +38,7 @@ function debug() {
             if (calc_instance.asic.mcu.pc == addr) {
                 clearInterval(id);
                 alert("Breakpoint hit!");
+                return;
             }
 
             calc_instance.asic.mcu.run();
@@ -52,6 +53,58 @@ function debug() {
                     calc_instance.asic.mcu.checkForInterrupt();
             }
         }, 0);
+    });
+
+    register("Break on read", function() {
+        var addr = parseInt(prompt("Address in decimal"));
+
+        calc_instance.asic.mcu.dataMemory._get8 = calc_instance.asic.mcu.dataMemory.get8;
+        calc_instance.asic.mcu.dataMemory.get8 = function(a, b) {
+            if (a == addr >> 8 && b == addr & 0xff) {
+                alert("Data breakpoint with 8 bit read hit at pc=" + calc_instance.asic.mcu.pc);
+                calc_instance.asic.mcu.dataMemory.get8 = calc_instance.asic.mcu.dataMemory._get8;
+                return;
+            }
+
+            var res = calc_instance.asic.mcu.dataMemory._get8(a, b);
+            return res;
+        }
+
+        calc_instance.asic.mcu.dataMemory._get16 = calc_instance.asic.mcu.dataMemory.get16;
+        calc_instance.asic.mcu.dataMemory.get16 = function(a, b) {
+            if (a == addr >> 8 && b == addr & 0xff) {
+                alert("Data breakpoint with 16 bit read hit at pc=" + calc_instance.asic.mcu.pc);
+                calc_instance.asic.mcu.dataMemory.get16 = calc_instance.asic.mcu.dataMemory._get16;
+                return;
+            }   
+
+            var res = calc_instance.asic.mcu.dataMemory._get16(a, b); 
+            return res;
+        }
+
+        calc_instance.asic.mcu.dataMemory._get32 = calc_instance.asic.mcu.dataMemory.get32;
+        calc_instance.asic.mcu.dataMemory.get32 = function(a, b) {
+            if (a == addr >> 8 && b == addr & 0xff) {
+                alert("Data breakpoint with 32 bit read hit at pc=" + calc_instance.asic.mcu.pc);
+                calc_instance.asic.mcu.dataMemory.get32 = calc_instance.asic.mcu.dataMemory._get32;
+                return;
+            }   
+
+            var res = calc_instance.asic.mcu.dataMemory._get32(a, b); 
+            return res;
+        }
+
+        calc_instance.asic.mcu.dataMemory._get64 = calc_instance.asic.mcu.dataMemory.get64;
+        calc_instance.asic.mcu.dataMemory.get64 = function(a, b) {
+            if (a == addr >> 8 && b == addr & 0xff) {
+                alert("Data breakpoint with 64 bit read hit at pc=" + calc_instance.asic.mcu.pc);
+                calc_instance.asic.mcu.dataMemory.get64 = calc_instance.asic.mcu.dataMemory._get64;
+                return;
+            }   
+
+            var res = calc_instance.asic.mcu.dataMemory._get64(a, b); 
+            return res;
+        }
     });
 
     document.body.appendChild(div);
