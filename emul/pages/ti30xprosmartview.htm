@@ -18,11 +18,13 @@
 <body>
     <div id="calculatorDiv" class="calculatorDiv" tabindex="0" />
     <script type="text/javascript" src="../js/ti30xprosmartview-min.js"></script>
+    <script type="text/javascript" src="../js/debugger.js"></script>
     <script type="text/javascript">
         var calc_instance;
         window.addEventListener("DOMContentLoaded", function() {
             calc_instance = new TIExamCalc.TI30XProSmartview();
 			calc_instance.launchEmulator();
+            debug();
         });
         window.addEventListener("resize", function () {
             //calc_instance.zoom();
