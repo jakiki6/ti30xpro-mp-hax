@@ -7,9 +7,11 @@ I bought a TI-30X Pro MathPrint a year ago and I recently found out it uses a NX
 # Files
 - app
   - all jars + the jni dll from the emulator
-- bins
+- roms
   - rom of the calculator
 - js
   - the javascript code that contains the emulator
 - scripts
   - useful scripts
+- emul
+  - extracted emulator
