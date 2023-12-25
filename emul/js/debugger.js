@@ -18,6 +18,23 @@ function debug() {
         }, 1000);
     });
 
+    register("Load ROM", function() {
+        var input = document.createElement("input");
+        input.type = "file";
+
+        input.onchange = function(e) {
+            var file = e.target.files[0]; 
+            var reader = new FileReader();
+            reader.readAsArrayBuffer(file);
+
+            reader.onload = function(readerEvent) {
+                calc_instance.asic.mcu.codeMemory.mem = new Uint8Array(readerEvent.target.result);
+            }
+        }
+
+        input.click();
+    });
+
     register("Reset", function() {
         calc_instance.resetEmulator();
     });
