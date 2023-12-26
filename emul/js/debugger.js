@@ -28,7 +28,7 @@ function debug() {
             reader.readAsArrayBuffer(file);
 
             reader.onload = function(readerEvent) {
-                calc_instance.asic.mcu.codeMemory.mem = new Uint8Array(readerEvent.target.result);
+                calc_instance.asic.mcu.codeMemory.setData(new Uint8Array(readerEvent.target.result));
             }
         }
 
