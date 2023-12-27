@@ -1,0 +1,17 @@
+{
+  "name": "TI-30X Pro/Plus/Prio",
+  "short_name": "TI",
+  "description": "TI-30X Pro/Plus/Prio calculators",
+  "icons": [
+    {
+      "src": "./icons/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.htm",
+  "display": "fullscreen",
+  "theme_color": "#B12A34",
+  "background_color": "#B12A34"
+}
+

@@ -1,4 +1,11 @@
 <html>
+    <link rel="manifest" href="ti.webmanifest"/>
+    <script>
+        if ("serviceWorker" in navigator) {
+              navigator.serviceWorker.register("js/sw.js");
+        }
+    </script>
+
     <a href="pages/ti30xpriosmartview.htm">TI-30X Prio MathPrint</a>
     <a href="pages/ti30xprosmartview.htm">TI-30X Pro MathPrint</a>
     <a href="pages/ti30xplussmartview.htm">TI-30X Plus MathPrint</a>
