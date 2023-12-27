@@ -26,7 +26,7 @@ while True:
         print("Not found")
         exit(1)
     elif count == 1:
-        print(hex(new.index(part)))
+        print("hit with " + str(n) + " byte" + ("s" if n != 1 else "") + ": " + hex(new.index(part)))
         exit(0)
 
     n += 1
