@@ -1,2 +1,4 @@
-f_184BC   _memset_n
-f_1A2E6   wdt_tickle
+f_184BC     _memset_n
+f_297C8     _strlen_n
+
+f_1A2E6     wdt_tickle
